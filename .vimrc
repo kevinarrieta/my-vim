@@ -12,15 +12,15 @@ set wildmenu
 set autoindent
 " For MacVim
 if has('gui_running')
-  syntax on
-  color dracula
+    syntax on
+    color dracula
 endif
 " Remove trailling whitespace on :w
 autocmd BufWritePre * :%s/\s\+$//e
 call plug#begin('~/.vim/plugged')
-	Plug 'vim-airline/vim-airline'
-	Plug 'scrooloose/nerdtree'
-	Plug 'kien/ctrlp.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'scrooloose/nerdtree'
+    Plug 'kien/ctrlp.vim'
     Plug 'MarcWeber/vim-addon-mw-utils'
     Plug 'tomtom/tlib_vim'
     Plug 'garbas/vim-snipmate'

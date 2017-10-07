@@ -1,34 +1,34 @@
-set nocompatible "ensures vim over vi
 set number
-syntax enable
 set noerrorbells visualbell t_vb= "turn off annoying bells
-set hlsearch
-set incsearch
-filetype plugin indent on
-set tabstop=4
+set softtabstop=2 "number of space chars a tab counts for
+set shiftwidth=2 "number of space chars for indentation
+set tabstop=2 "space chars inserted when tab key is pressed
 set expandtab
-set shiftwidth=4
+set incsearch
 set wildmenu
-set autoindent
-" For MacVim
-if has('gui_running')
-    syntax on
-    color dracula
+filetype plugin indent on
+if has("gui_running")
+  syntax on
+  color dracula
 endif
-" Remove trailling whitespace on :w
-autocmd BufWritePre * :%s/\s\+$//e
+
 call plug#begin('~/.vim/plugged')
-    Plug 'vim-airline/vim-airline'
-    Plug 'scrooloose/nerdtree'
-    Plug 'kien/ctrlp.vim'
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'garbas/vim-snipmate'
-    Plug 'mattn/emmet-vim'
+  Plug 'pangloss/vim-javascript'
+  Plug 'Chiel92/vim-autoformat'
+  Plug 'kien/ctrlp.vim'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'mattn/emmet-vim'
+  Plug 'tpope/vim-surround'
+  Plug 'raimondi/delimitmate'
 call plug#end()
+
 let mapleader = ","
-noremap <c-n> :NERDTreeToggle<cr>
-nnoremap <leader><leader> :NERDTreeToggle<cr>
-nnoremap <leader>a ggVG
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>wq :wq<cr>:source $MYVIMRC<cr>
+nnoremap <leader>rc :vs $MYVIMRC<cr>
+nnoremap <leader>src :wq<cr>:source $MYVIMRC<cr>
+nnoremap <leader>f :Autoformat<cr>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+autocmd BufWritePre * :%s/\s\+$//e
